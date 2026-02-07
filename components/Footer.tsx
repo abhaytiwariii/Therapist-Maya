@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-primary/10">
+    <footer className="bg-background border-t border-black">
       {/* Main Footer Content */}
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
@@ -68,7 +68,7 @@ export default function Footer() {
                 Blog
               </Link>
               <a
-                href="#about-me"
+                href="/#about-me"
                 className="hover:text-primary underline decoration-primary/30 underline-offset-4 transition-all"
               >
                 About Me

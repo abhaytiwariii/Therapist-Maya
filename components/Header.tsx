@@ -32,19 +32,19 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="md:text-2xl text-xl font-bold text-stone-800">
+        <Link href="/#about-me" className="md:text-2xl text-xl font-bold text-stone-800">
           Dr. Maya Reynolds
         </Link>
 
         <nav className="flex gap-8">
           <Link
-            href="#about"
+            href="/blog"
             className="text-sm md:text-lg text-stone-700 hover:text-stone-900 transition-colors"
           >
             Blog
           </Link>
           <Link
-            href="#contact"
+            href="/contact"
             className="text-sm md:text-lg text-stone-700 hover:text-stone-900 transition-colors"
           >
             Contact
