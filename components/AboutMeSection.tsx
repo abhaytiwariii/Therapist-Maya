@@ -1,83 +1,96 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutMeSection() {
-  const [isInView, setIsInView] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-[#ede0d4]">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="space-y-8"
-        >
-          <h2 className="text-4xl font-light text-stone-900">
-            Hi, I'm Dr. Maya Reynolds.
-          </h2>
-          <p className="text-lg text-stone-700 leading-relaxed">
-            I'm committed to providing a safe and supportive environment where
-            we can explore your thoughts, feelings, and behaviors. With empathy
-            and guidance, we'll work together to navigate the challenges life
-            throws your way.
-          </p>
-          <p className="text-lg text-stone-700 leading-relaxed">
-            My approach combines CBT, EMDR, mindfulness, and body-based
-            therapies to address anxiety, trauma, burnout, and perfectionism. I
-            work collaboratively with adults in Santa Monica through in-person
-            sessions and California telehealth.
-          </p>
-          <button className="px-8 py-3 border border-stone-800 text-stone-800 text-sm tracking-wide hover:bg-stone-800 hover:text-white transition-colors">
-            LET'S CHAT →
-          </button>
-        </motion.div>
+    <section className="py-24 px-6 lg:py-32 bg-background overflow-hidden" id="about-me">
+      <div className="container mx-auto">
+        <div className="flex flex-col gap-16 lg:flex-row-reverse lg:items-center lg:gap-24">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end mb-16"
+          >
+            <div className="relative w-full max-w-[320px] max-h-[320px] md:max-w-[450px] aspect-square md:max-h-[450px]">
+              <div className="absolute top-0 left-0 w-[85%] h-[120%] rounded-t-full overflow-hidden shadow-md z-10">
+                <Image
+                  src="/Dr. Maya Reynolds 2.png"
+                  alt="Dr. Maya Reynolds"
+                  className="w-full h-full object-cover object-top"
+                  fill
+                />
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="relative flex justify-center items-center h-[500px]"
-        >
-          <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full overflow-hidden bg-stone-200 shadow-lg">
-            <img
-              src="https://images.pexels.com/photos/1030945/pexels-photo-1030945.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Flowers"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full overflow-hidden bg-stone-200 shadow-lg">
-            <img
-              src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="White flowers"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+              {/* Secondary Image: Flowers (Smaller Circle, Bottom Right) */}
+              <div className="absolute bottom-[-100px] md:bottom-[-150px] right-4 w-[55%] h-[55%] rounded-full overflow-hidden shadow-lg z-20">
+                <Image
+                  src="/Dr. Maya Reynolds.png"
+                  fill
+                  alt="Lilac flowers aesthetic"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border border-primary/10 -z-10 scale-110" />
+            </div>
+          </motion.div>
+
+          {/* TEXT COLUMN */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              ...fadeUp,
+              visible: {
+                ...fadeUp.visible,
+                transition: { delay: 0.2, duration: 0.8 },
+              },
+            }}
+            className="w-full lg:w-1/2 space-y-8"
+          >
+            <h2 className="font-serif text-4xl leading-[1.2] text-primary md:text-5xl lg:text-6xl">
+              Hi, I&#39;m <br /> Dr. Maya Reynolds.
+            </h2>
+
+            <div className="space-y-6 text-lg leading-relaxed text-primary/80 font-light">
+              <p>
+                I&#39;m committed to providing a safe and supportive environment
+                where we can explore your thoughts, feelings, and behaviors.
+                With empathy and guidance, we&#39;ll work together to navigate
+                the challenges life throws your way.
+              </p>
+              <p>
+                My approach combines CBT, EMDR, mindfulness, and body-based
+                therapies to address anxiety, trauma, burnout, and
+                perfectionism. I work collaboratively with adults in Santa
+                Monica through in-person sessions and California telehealth.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <button className="group flex items-center gap-3 px-8 py-4 border border-primary text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:bg-primary hover:text-background">
+                Let&#39;s Chat
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

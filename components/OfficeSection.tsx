@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Clock, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 /**
  * OfficeSection Component
@@ -59,7 +60,7 @@ const OfficeSection = () => {
                 Located in the heart of Santa Monica, my office is a quiet,
                 private sanctuary designed to feel grounding and safe. With
                 plenty of natural light and a comfortable, uncluttered
-                environment, it's a place where you can truly slow down.
+                environment, it&#39;s a place where you can truly slow down.
               </p>
 
               {/* Practical Details List */}
@@ -109,14 +110,11 @@ const OfficeSection = () => {
                 variants={itemVariants}
                 className="relative aspect-[3/4] overflow-hidden rounded-t-full shadow-sm"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070"
+                <Image
+                  src="/office1.png"
                   alt="Dr. Maya Reynolds Therapy Office"
+                  fill
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://placehold.co/600x800/E8EDE6/4A5447?text=Office+Interior";
-                  }}
                 />
               </motion.div>
 
@@ -125,14 +123,11 @@ const OfficeSection = () => {
                 variants={itemVariants}
                 className="relative mt-12 aspect-[3/4] overflow-hidden rounded-t-full shadow-sm sm:mt-24"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1596231850394-24cef5b08386?q=80&w=2070"
+                <Image
+                  src="/office2.png"
                   alt="Comfortable Seating Area"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://placehold.co/600x800/D1D9CE/2C332A?text=Consultation+Corner";
-                  }}
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
               </motion.div>

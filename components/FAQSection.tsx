@@ -1,109 +1,116 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { Plus } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import Image from "next/image";
 
 const faqs = [
   {
-    question: 'Do you take insurance?',
+    question: "Do you take insurance?",
     answer:
-      'I am an out-of-network provider. I can provide you with a superbill to submit to your insurance for potential reimbursement.',
+      "I am an out-of-network provider, which means I do not bill insurance directly. However, I can provide you with a monthly superbill to submit to your insurance company for potential reimbursement.",
   },
   {
-    question: 'What are your rates?',
+    question: "What are your rates?",
     answer:
-      'Individual therapy sessions are $200 for 50 minutes. I offer a limited number of sliding scale spots for those with financial need.',
+      "My standard fee is $225 for a 50-minute individual session. I offer a limited number of sliding scale spots for those with financial need—please inquire during our consultation.",
   },
   {
-    question: 'Do you have any openings?',
+    question: "Do you have any openings?",
     answer:
-      'I typically have a waitlist, but availability changes regularly. Please reach out to inquire about current openings.',
+      "I typically have a waitlist for evening slots, but I often have daytime availability. The best way to find out is to schedule a free 15-minute consultation.",
+  },
+  {
+    question: "Do you offer in-person sessions?",
+    answer:
+      "Yes, I see clients in-person at my Santa Monica office on Tuesdays and Thursdays. I also offer secure telehealth sessions for clients located anywhere in California.",
   },
 ];
 
 export default function FAQSection() {
-  const [isInView, setIsInView] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-[#f5ebe0]">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex justify-center"
-        >
-          <div className="w-64 h-80 rounded-t-full overflow-hidden bg-stone-200">
-            <img
-              src="https://images.pexels.com/photos/1030945/pexels-photo-1030945.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Lavender"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+    <section className="py-24 px-6 lg:py-32 bg-background">
+      <div className="container mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+          {/* IMAGE COLUMN */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 flex justify-center lg:justify-start"
+          >
+            <div className="relative w-64 h-80 md:w-80 md:h-96 lg:w-[450px] lg:h-[600px] rounded-t-full overflow-hidden shadow-sm bg-[#EAEAEA]">
+              <Image
+                src="/FAQS.webp"
+                alt="Dried floral arrangement in therapy office"
+                className="h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105"
+                fill
+              />
+            </div>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="space-y-8"
-        >
-          <h2 className="text-4xl font-light text-stone-900">FAQs</h2>
+          {/* FAQ CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full lg:w-1/2 space-y-10"
+          >
+            <h2 className="font-serif text-4xl text-primary md:text-5xl lg:text-6xl">
+              FAQs
+            </h2>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="border-b border-stone-300 pb-4"
-              >
-                <button
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                  className="w-full flex justify-between items-center text-left"
+            <div className="space-y-2">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border-b border-primary/20 last:border-0"
                 >
-                  <span className="text-lg text-stone-900">
-                    {faq.question}
-                  </span>
-                  <Plus
-                    className={`w-5 h-5 text-stone-700 transition-transform ${
-                      openIndex === index ? 'rotate-45' : ''
-                    }`}
-                  />
-                </button>
-                {openIndex === index && (
-                  <p className="mt-4 text-stone-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
+                  <button
+                    onClick={() =>
+                      setOpenIndex(openIndex === index ? null : index)
+                    }
+                    className="w-full flex items-start gap-6 py-6 text-left group transition-colors hover:bg-primary/5 px-2 rounded-sm"
+                  >
+                    {/* Plus Icon on LEFT to match Lilac Template */}
+                    <span className="mt-1 flex-shrink-0">
+                      <Plus
+                        className={`h-5 w-5 text-primary/60 transition-transform duration-300 ${
+                          openIndex === index ? "rotate-45" : "rotate-0"
+                        }`}
+                      />
+                    </span>
+
+                    <span className="text-xl md:text-2xl font-serif text-primary group-hover:text-primary/80 transition-colors">
+                      {faq.question}
+                    </span>
+                  </button>
+
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-8 pl-14 text-primary/70 leading-relaxed font-light text-lg">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
