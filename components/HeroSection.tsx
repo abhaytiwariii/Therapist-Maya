@@ -72,9 +72,11 @@ export default function HeroSection() {
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
               className="pt-4"
             >
-              <button className="group relative border border-[#2C332A] px-12 py-5 text-xs font-bold tracking-[0.25em] text-[#2C332A] transition-all hover:bg-[#2C332A] hover:text-[#F9F7F2]">
-                CONNECT WITH ME —
-              </button>
+              <a href="/contact">
+                <button className="group relative border border-[#2C332A] px-12 py-5 text-xs font-bold tracking-[0.25em] text-[#2C332A] transition-all hover:bg-[#2C332A] hover:text-[#F9F7F2]">
+                  CONNECT WITH ME —
+                </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
