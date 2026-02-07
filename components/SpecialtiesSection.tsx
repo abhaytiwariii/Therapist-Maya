@@ -39,7 +39,7 @@ export default function SpecialtiesSection() {
           setIsInView(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -60,7 +60,7 @@ export default function SpecialtiesSection() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary text-center mb-16 md:mb-24"
         >
           My Specialties
@@ -76,7 +76,7 @@ export default function SpecialtiesSection() {
               transition={{
                 duration: 0.8,
                 delay: index * 0.2,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               // Lilac Style Card: Subtle border/bg, left-aligned text, centered image at bottom
               className="flex flex-col bg-[#F4F1EA] border border-black p-8 pb-12 rounded-sm shadow-sm hover:shadow-md transition-shadow duration-500"

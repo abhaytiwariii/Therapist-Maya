@@ -10,7 +10,7 @@ export default function CTASection() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
         className="max-w-3xl mx-auto text-center space-y-10"
       >
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#F9F7F2]">

@@ -47,7 +47,7 @@ export default function PainPointsSection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="w-full lg:w-1/2"
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-sm bg-[#EAEAEA]">
@@ -68,7 +68,7 @@ export default function PainPointsSection() {
             transition={{
               duration: 0.8,
               delay: 0.2,
-              ease: [0.22, 1, 0.36, 1],
+              ease: [0.22, 1, 0.36, 1] as const,
             }}
             className="w-full lg:w-1/2 space-y-8 lg:space-y-10"
           >
