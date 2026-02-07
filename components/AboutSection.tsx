@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutSection() {
   // Simple fade-in animation
@@ -10,7 +11,7 @@ export default function AboutSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -49,7 +50,11 @@ export default function AboutSection() {
               ...fadeUp,
               visible: {
                 ...fadeUp.visible,
-                transition: { delay: 0.2, duration: 0.8 },
+                transition: {
+                  delay: 0.2,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                },
               },
             }}
             className="w-full lg:w-1/2 space-y-8"
@@ -73,12 +78,14 @@ export default function AboutSection() {
             </div>
 
             <div className="pt-2 pb-2 flex justify-center">
-              <button className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:opacity-70 text-center border border-black px-6 py-4">
-                Get in Touch
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </button>
+              <Link href={"/contact"}>
+                <button className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:opacity-70 text-center border border-black px-6 py-4">
+                  Get in Touch
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </button>
+              </Link>
             </div>
           </motion.div>
         </div>

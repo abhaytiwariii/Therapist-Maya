@@ -10,12 +10,16 @@ export default function AboutMeSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   return (
-    <section className="py-24 px-6 lg:py-32 bg-background overflow-hidden" id="about-me">
+    <section
+      className="py-24 px-6 lg:py-32 bg-background overflow-hidden"
+      id="about-me"
+    >
       <div className="container mx-auto">
         <div className="flex flex-col gap-16 lg:flex-row-reverse lg:items-center lg:gap-24">
           <motion.div
@@ -59,7 +63,11 @@ export default function AboutMeSection() {
               ...fadeUp,
               visible: {
                 ...fadeUp.visible,
-                transition: { delay: 0.2, duration: 0.8 },
+                transition: {
+                  delay: 0.2,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                },
               },
             }}
             className="w-full lg:w-1/2 space-y-8"

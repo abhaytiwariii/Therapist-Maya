@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
-    
     <section className="py-24 px-6 lg:py-32 bg-[#8A9A5B]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-3xl mx-auto text-center space-y-10"
       >
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#F9F7F2]">
@@ -24,12 +24,14 @@ export default function CTASection() {
         </p>
 
         <div className="pt-4">
-          <button className="group inline-flex items-center gap-2 px-10 py-4 border border-[#F9F7F2] text-xs font-bold tracking-[0.2em] text-[#F9F7F2] uppercase transition-all hover:bg-[#F9F7F2] hover:text-[#8A9A5B]">
-            Get in Touch
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </button>
+          <Link href={"/contact"}>
+            <button className="group inline-flex items-center gap-2 px-10 py-4 border border-[#F9F7F2] text-xs font-bold tracking-[0.2em] text-[#F9F7F2] uppercase transition-all hover:bg-[#F9F7F2] hover:text-[#8A9A5B]">
+              Get in Touch
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+          </Link>
         </div>
       </motion.div>
     </section>
