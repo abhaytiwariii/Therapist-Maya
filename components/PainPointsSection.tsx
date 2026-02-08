@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const painPoints = [
   "Persistent feelings of sadness or hopelessness",
@@ -54,7 +55,7 @@ export default function PainPointsSection() {
               <Image
                 src="https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=1974"
                 alt="Woman looking thoughtful in a calm setting"
-                className="h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-&lsqb;2000ms&rsqb; hover:scale-105"
                 fill
               />
             </div>
@@ -92,18 +93,19 @@ export default function PainPointsSection() {
               ))}
             </ul>
 
-            <div className="pt-6 space-y-8">
+            <div className="pt-6 space-y-8 flex flex-col">
               <p className="text-lg leading-relaxed text-primary/80 max-w-md">
                 With empathy and guidance, we'll work together to navigate the
                 challenges life throws your way.
               </p>
-
-              <button className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:opacity-70 border border-black px-6 py-4">
-                Work With Me
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </button>
+              <Link href={"/contact"} className="mt-5">
+                <button className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:opacity-70 border border-black px-6 py-4">
+                  Work With Me
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </button>
+              </Link>
             </div>
           </motion.div>
         </div>

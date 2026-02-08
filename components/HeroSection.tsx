@@ -10,7 +10,7 @@ export default function HeroSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] },
+      transition: { duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] as const },
     },
   };
 
@@ -31,7 +31,7 @@ export default function HeroSection() {
               <Image
                 src="/Dr. Maya Reynolds.png"
                 alt="Dr. Maya Reynolds - Psychologist in Santa Monica"
-                className="h-full w-full object-cover transition-transform duration-[3000ms] hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-&lsqb;3000ms&rsqb; hover:scale-110"
                 fill
               />
             </div>
@@ -73,7 +73,7 @@ export default function HeroSection() {
               className="pt-4"
             >
               <a href="/contact">
-                <button className="group relative border border-[#2C332A] px-12 py-5 text-xs font-bold tracking-[0.25em] text-[#2C332A] transition-all hover:bg-[#2C332A] hover:text-[#F9F7F2]">
+                <button className="group relative border border-[#2C332A] sm:px-12 px-8 py-3 sm:py-5 text-xs font-bold tracking-[0.25em] text-[#2C332A] transition-all hover:bg-[#2C332A] hover:text-[#F9F7F2]">
                   CONNECT WITH ME —
                 </button>
               </a>

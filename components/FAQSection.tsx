@@ -47,7 +47,7 @@ export default function FAQSection() {
               <Image
                 src="/FAQS.webp"
                 alt="Dried floral arrangement in therapy office"
-                className="h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-&lsqb;2000ms&rsqb; hover:scale-105"
                 fill
               />
             </div>

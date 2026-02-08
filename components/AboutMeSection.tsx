@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutMeSection() {
   const fadeUp = {
@@ -92,10 +93,12 @@ export default function AboutMeSection() {
             </div>
 
             <div className="pt-4">
-              <button className="group flex items-center gap-3 px-8 py-4 border border-primary text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:bg-primary hover:text-background">
-                Let&#39;s Chat
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              <Link href={"/contact"}>
+                <button className="group flex items-center gap-3 px-8 py-4 border border-primary text-xs font-bold tracking-[0.2em] text-primary uppercase transition-all hover:bg-primary hover:text-background">
+                  Let&#39;s Chat
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </Link>
             </div>
           </motion.div>
         </div>

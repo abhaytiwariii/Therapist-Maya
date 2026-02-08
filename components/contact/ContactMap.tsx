@@ -71,7 +71,7 @@ export default function ContactMap() {
             <Image
               src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074"
               alt="Map of Santa Monica"
-              className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-[2000ms] hover:scale-105"
+              className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-&lsqb;2000ms&rsqb; hover:scale-105"
               fill
             />
 

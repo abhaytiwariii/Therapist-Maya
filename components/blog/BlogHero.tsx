@@ -28,7 +28,7 @@ export default function BlogHero() {
               <Image
                 src="/blogHero.png"
                 alt="Cozy reading nook"
-                className="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-&lsqb;3000ms&rsqb; hover:scale-105"
                 fill
               />
             </div>

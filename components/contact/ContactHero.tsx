@@ -43,7 +43,7 @@ export default function ContactHero() {
                 <Image
                   src="/Dr. Maya Reynolds 2.png"
                   alt="Calm office detail"
-                  className="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-&lsqb;3000ms&rsqb; hover:scale-105"
                   fill
                 />
               </div>

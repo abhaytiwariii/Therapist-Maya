@@ -18,10 +18,6 @@ export default function AboutSection() {
   return (
     <section className="bg-secondary/20 py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16">
-        {/* LAYOUT STRATEGY:
-          - Mobile: flex-col (Stack: Image first, Text second)
-          - Desktop: flex-row-reverse (Row: Image Right, Text Left)
-        */}
         <div className="flex flex-col gap-12 lg:flex-row-reverse lg:items-center lg:gap-20">
           {/* IMAGE BLOCK */}
           <motion.div
@@ -35,7 +31,7 @@ export default function AboutSection() {
               <Image
                 src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070"
                 alt="Journaling and reflection in a calm space"
-                className="h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-&lsqb;2000ms&rsqb; hover:scale-105"
                 fill
               />
             </div>
