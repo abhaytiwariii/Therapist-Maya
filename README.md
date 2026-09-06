@@ -1,6 +1,6 @@
 # Dr. Maya Reynolds — Clinical Psychologist Portfolio
 
-A design-forward, fully responsive **Next.js** website built for the **GrowMyTherapy Frontend Internship Assignment**.
+A design-forward, fully responsive **Next.js** website built for the **Dr. Therapist Maya**.
 
 This project demonstrates **UI accuracy**, **creative redesign**, and **modern frontend engineering** using a fictional clinical psychologist persona.
 
